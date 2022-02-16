@@ -3,6 +3,7 @@ from settings import *
 from tile import Tile
 from player import Player
 from debug import debug
+from ysortcameragroup import YSortCameraGroup
 
 class Level:
     def __init__(self):
@@ -11,7 +12,7 @@ class Level:
         self.display_surface = pygame.display.get_surface()
 
         # Setup sprite group
-        self.visible_sprites = pygame.sprite.Group()
+        self.visible_sprites = YSortCameraGroup()
         self.obstacle_sprites = pygame.sprite.Group()
 
         self.create_map()
@@ -26,9 +27,9 @@ class Level:
                     Tile((x,y), [self.visible_sprites, self.obstacle_sprites])
 
                 if col == 'p':
-                    self.player = Player((x, y), [self.visible_sprites])
+                    self.player = Player((x, y), [self.visible_sprites], self.obstacle_sprites)
 
     def run(self):
-        self.visible_sprites.draw(self.display_surface)
+        self.visible_sprites.draw(self.display_surface, self.player)
         self.visible_sprites.update()
         debug(self.player.direction)
