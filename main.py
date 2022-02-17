@@ -2,7 +2,7 @@ import pygame
 import sys
 from setup import *
 from level import Level
-from debug import debug
+from console import Console
 
 
 class Game:
@@ -15,6 +15,12 @@ class Game:
 
         self.level = Level()
 
+        # Console test
+        Console().write(str("Hello world"))
+        for i in range(20):
+            Console().write(str(i))
+        Console().write(str("Test"))
+
     def run(self):
         while True:
 
@@ -25,6 +31,7 @@ class Game:
 
             self.screen.fill('black')
             self.level.run()
+            Console().draw()
             pygame.display.update()
             self.clock.tick(FPS)
 

@@ -2,7 +2,6 @@ import pygame
 from setup import *
 from tile import Tile
 from player import Player
-from debug import debug
 
 
 class YSortCameraGroup(pygame.sprite.Group):

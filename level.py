@@ -2,7 +2,6 @@ import pygame
 from setup import *
 from tile import Tile
 from player import Player
-from debug import debug
 from ysortcameragroup import YSortCameraGroup
 
 class Level:
@@ -32,4 +31,3 @@ class Level:
     def run(self):
         self.visible_sprites.draw(self.display_surface, self.player)
         self.visible_sprites.update()
-        debug(self.player.direction)
