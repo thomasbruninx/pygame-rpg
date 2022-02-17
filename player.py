@@ -32,8 +32,6 @@ class Player(pygame.sprite.Sprite):
         else:
             self.direction.x = 0
 
-        if keys[pygame.K_c]:
-            Console().toggle_visibility()
 
     def move(self, speed):
         if self.direction.magnitude() != 0:

@@ -10,16 +10,13 @@ class Game:
 
         pygame.init()
         self.screen = pygame.display.set_mode((SCR_WIDTH, SCR_HEIGHT))
-        pygame.display.set_caption('RPG in need of a title')
+        pygame.display.set_caption("Maxime's Big Adventure")
         self.clock = pygame.time.Clock()
 
-        self.level = Level()
+        Console().write("pygame-rpg by Thomas Bruninx")
+        Console().write("(%s)" % sys.version)
 
-        # Console test
-        Console().write(str("Hello world"))
-        for i in range(20):
-            Console().write(str(i))
-        Console().write(str("Test"))
+        self.level = Level()
 
     def run(self):
         while True:
@@ -28,8 +25,11 @@ class Game:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_c:
+                        Console().toggle_visibility()
 
-            self.screen.fill('black')
+            self.screen.fill(pygame.color.Color(10, 98,150))
             self.level.run()
             Console().draw()
             pygame.display.update()

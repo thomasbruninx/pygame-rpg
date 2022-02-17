@@ -1,9 +1,9 @@
 import pygame
 from util import Singleton
 
-
 CONSOLE_MAXLINES = 12
 CONSOLE_FONTSIZE = 18
+CONSOLE_FONTFILE = "assets/fonts/VT323-Regular.ttf"
 
 
 class Console(metaclass=Singleton):
@@ -14,7 +14,7 @@ class Console(metaclass=Singleton):
         self.visible = False
         self.buffer = []
         self.bgcolor = pygame.color.Color(0, 0, 0, 200)
-        self.font = pygame.font.Font(None, CONSOLE_FONTSIZE)
+        self.font = pygame.font.Font(CONSOLE_FONTFILE, CONSOLE_FONTSIZE)
         self.size = (pygame.display.get_surface().get_size()[0], CONSOLE_MAXLINES * CONSOLE_FONTSIZE)
         self.surface = pygame.surface.Surface(self.size)
         self.surface = self.surface.convert_alpha()

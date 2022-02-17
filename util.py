@@ -10,9 +10,6 @@ def read_csv_as_array(filename, delimiter=','):
         return arr_data
 
 
-
-
-
 class Singleton(type):
     _instances = {}
 
