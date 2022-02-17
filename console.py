@@ -13,10 +13,11 @@ class Console(metaclass=Singleton):
 
         self.visible = False
         self.buffer = []
-        self.bgcolor = pygame.color.Color(0, 0, 0, 128)
+        self.bgcolor = pygame.color.Color(0, 0, 0, 200)
         self.font = pygame.font.Font(None, CONSOLE_FONTSIZE)
         self.size = (pygame.display.get_surface().get_size()[0], CONSOLE_MAXLINES * CONSOLE_FONTSIZE)
         self.surface = pygame.surface.Surface(self.size)
+        self.surface = self.surface.convert_alpha()
 
     def write(self, text, color='White'):
         self.buffer.append((text, color))
