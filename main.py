@@ -28,8 +28,11 @@ class Game:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_c:
                         Console().toggle_visibility()
+                    if event.key == pygame.K_ESCAPE:
+                        pygame.quit()
+                        sys.exit()
 
-            self.screen.fill(pygame.color.Color(10, 98,150))
+            self.screen.fill(pygame.color.Color(10, 98, 150))
             self.level.run()
             Console().draw()
             pygame.display.update()

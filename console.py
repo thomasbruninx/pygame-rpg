@@ -32,7 +32,7 @@ class Console(metaclass=Singleton):
             pygame.draw.rect(self.surface, self.bgcolor, self.surface.get_rect())
             for index, line in enumerate(self.buffer[-12:]):
                 line_surf = self.font.render(str(line[0]), True, line[1])
-                line_rect = line_surf.get_rect(topleft=(0, CONSOLE_FONTSIZE * index))
+                line_rect = line_surf.get_rect(topleft=(2, CONSOLE_FONTSIZE * index))
                 self.surface.blit(line_surf, line_rect)
 
             display_surface.blit(self.surface, self.surface.get_rect())
